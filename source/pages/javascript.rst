@@ -103,7 +103,7 @@ Execution Context
 A wrapper to help manage the code that is running.
 There are lots of lexical environments. Which one is currently running is managed via execution contexts. It can contain things beyond what you've written in your code.
 
-.. image:: ../img/jsexecutioncontext.png
+.. image:: ./../img/jsexecutioncontext.png
   :width: 400
   :alt: Execution Context
 
@@ -111,7 +111,7 @@ Creation & Hoisting
 ^^^^^^^^^^^^^^^^^^^^^^^
 Execution Context is created in two phases:
 
-1. Phase 1 - Creation Phase
+1. Creation Phase
     * Global Object
     * 'this'
     * Outer Environment
@@ -119,6 +119,19 @@ Execution Context is created in two phases:
 
         * A function and all its code is stored in memory
         * A variable is stored in memory, however the value is unknown and will be set to undefined
+
+Single Threaded & Synchronous
+------------------------------
+Single Threaded:
+   * One command at a time.
+   * Under the hood of the browser, maybe not...
+
+Synchronous:
+    * One (line of code) at a time. And in order.
+
+Invocation
+------------------------------
+Running a function. In JS, by using parenthesis ()
 
 Object
 -------------------------
