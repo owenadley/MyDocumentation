@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>JavaScript &mdash; megadoc 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CSS" href="css.html" />
+    <link rel="prev" title="Owens Docs" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> megadoc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">JavaScript</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#vanilla-js">Vanilla JS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#arrays">Arrays</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unshift-x">unshift(x)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#push-x">push(x)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#join">join()</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#every">every()</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#strings">Strings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#split">split(“”)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parseint-40">parseInt(“40”)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#concat-str">concat(str)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#es6-ecmascript-6">ES6+ (ECMAScript 6)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#variable-definitions">Variable Definitions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#let-es6-new">let - ES6 new</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#var">var</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#const">const</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#execution-contexts-and-lexical-environments">Execution Contexts and Lexical Environments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#syntax-parser">Syntax Parser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#lexical-environment">Lexical Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#execution-context">Execution Context</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#creation-hoisting">Creation &amp; Hoisting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#single-threaded-synchronous">Single Threaded &amp; Synchronous</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asynchronous">Asynchronous</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#invocation">Invocation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#object">Object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#variable-environment">Variable Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-scope-chain">The Scope Chain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scope">Scope</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#react">React</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#componentlifecycle">ComponentLifeCycle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-boundaries">Error Boundaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#redux-state-management">Redux State Management</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#vue">Vue</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#polymer">Polymer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#d3">D3</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="css.html">CSS</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">megadoc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>JavaScript</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/javascript.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="javascript">
+<h1>JavaScript<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="vanilla-js">
+<h2>Vanilla JS<a class="headerlink" href="#vanilla-js" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="arrays">
+<h3>Arrays<a class="headerlink" href="#arrays" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="unshift-x">
+<h4>unshift(x)<a class="headerlink" href="#unshift-x" title="Permalink to this headline">¶</a></h4>
+<p>Adds a new item to the beginning of the array and returns the new array length</p>
+</div>
+<div class="section" id="push-x">
+<h4>push(x)<a class="headerlink" href="#push-x" title="Permalink to this headline">¶</a></h4>
+<p>Adds a new item to the end of the array and returns the new array length</p>
+</div>
+<div class="section" id="join">
+<h4>join()<a class="headerlink" href="#join" title="Permalink to this headline">¶</a></h4>
+<p>Returns all elements in an array as a single string</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Banana&quot;</span><span class="p">,</span> <span class="s2">&quot;Orange&quot;</span><span class="p">,</span> <span class="s2">&quot;Apple&quot;</span><span class="p">,</span> <span class="s2">&quot;Mango&quot;</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">energy</span> <span class="o">=</span> <span class="nx">fruits</span><span class="p">.</span><span class="nx">join</span><span class="p">();</span>
+<span class="c1">// energy == &quot;Banana,Orange,Apple,Mango&quot;</span>
+</pre></div>
+</div>
+<p>The elements will be seperated by a specified seperator. By default this is a comma</p>
+</div>
+<div class="section" id="every">
+<h4>every()<a class="headerlink" href="#every" title="Permalink to this headline">¶</a></h4>
+<p>Tests whether all elements of an array pass the test implemented by the provided function. Returns boolean</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kr">const</span> <span class="nx">isBelowThreshold</span> <span class="o">=</span> <span class="p">(</span><span class="nx">currentValue</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">currentValue</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">;</span>
+<span class="kr">const</span> <span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">13</span><span class="p">];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array1</span><span class="p">.</span><span class="nx">every</span><span class="p">(</span><span class="nx">isBelowThreshold</span><span class="p">));</span>
+<span class="c1">// expected output: true</span>
+</pre></div>
+</div>
+<p>The elements will be seperated by a specified seperator. By default this is a comma</p>
+</div>
+</div>
+<div class="section" id="strings">
+<h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="split">
+<h4>split(“”)<a class="headerlink" href="#split" title="Permalink to this headline">¶</a></h4>
+<p>Split a string into an array based on each occurance of the passed parameter</p>
+<ul class="simple">
+<li>Ex. “” would split each single char into its own index in the array</li>
+</ul>
+</div>
+<div class="section" id="parseint-40">
+<h4>parseInt(“40”)<a class="headerlink" href="#parseint-40" title="Permalink to this headline">¶</a></h4>
+<p>Parse a string and returns an integer</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;40&quot;</span><span class="p">)</span> <span class="c1">// 40</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;40 20 34&quot;</span><span class="p">)</span> <span class="c1">//40</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;3.5&quot;</span><span class="p">)</span> <span class="c1">//3</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;3.7&quot;</span><span class="p">)</span> <span class="c1">//3</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;40 years&quot;</span><span class="p">)</span> <span class="c1">//40</span>
+<span class="nb">parseInt</span><span class="p">(</span><span class="s2">&quot;He is 40 years&quot;</span><span class="p">)</span> <span class="c1">//NaN</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="concat-str">
+<h4>concat(str)<a class="headerlink" href="#concat-str" title="Permalink to this headline">¶</a></h4>
+<p>Concats strings together</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">newStr</span> <span class="o">=</span> <span class="nx">str1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">str2</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">newStr</span> <span class="o">=</span> <span class="nx">str1</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">str2</span><span class="p">,</span> <span class="nx">str3</span><span class="p">,</span> <span class="nx">strn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="es6-ecmascript-6">
+<h2>ES6+ (ECMAScript 6)<a class="headerlink" href="#es6-ecmascript-6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="variable-definitions">
+<h3>Variable Definitions<a class="headerlink" href="#variable-definitions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="let-es6-new">
+<h4>let - ES6 new<a class="headerlink" href="#let-es6-new" title="Permalink to this headline">¶</a></h4>
+<p>Variable which is accessible from within the scope that it is declared only.</p>
+</div>
+<div class="section" id="var">
+<h4>var<a class="headerlink" href="#var" title="Permalink to this headline">¶</a></h4>
+<p>Variable decleration which is accessible globally or anywhere within the function.</p>
+</div>
+<div class="section" id="const">
+<h4>const<a class="headerlink" href="#const" title="Permalink to this headline">¶</a></h4>
+<p>Variable decleration for an immutable value.</p>
+</div>
+</div>
+</div>
+<div class="section" id="execution-contexts-and-lexical-environments">
+<h2>Execution Contexts and Lexical Environments<a class="headerlink" href="#execution-contexts-and-lexical-environments" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="syntax-parser">
+<h3>Syntax Parser<a class="headerlink" href="#syntax-parser" title="Permalink to this headline">¶</a></h3>
+<p>A program that reads your code and determines what it does and if its grammar (or syntax) is valid.
+Your code isn’t magic. Someone else wrote a program to translate it for the computer (compiler).</p>
+</div>
+<div class="section" id="lexical-environment">
+<h3>Lexical Environment<a class="headerlink" href="#lexical-environment" title="Permalink to this headline">¶</a></h3>
+<p>Where something wits physically in the code your write.
+‘Lexical’ means ‘having to do with words or grammar’. A lexical environment exits in programming languages in which where you write something is important.</p>
+</div>
+<div class="section" id="execution-context">
+<h3>Execution Context<a class="headerlink" href="#execution-context" title="Permalink to this headline">¶</a></h3>
+<p>A wrapper to help manage the code that is running.
+There are lots of lexical environments. Which one is currently running is managed via execution contexts. It can contain things beyond what you’ve written in your code.</p>
+<a class="reference internal image-reference" href="../_images/jsexecutionenvironment.png"><img alt="Execution Context" src="../_images/jsexecutionenvironment.png" style="width: 400px;" /></a>
+<div class="section" id="creation-hoisting">
+<h4>Creation &amp; Hoisting<a class="headerlink" href="#creation-hoisting" title="Permalink to this headline">¶</a></h4>
+<p>Execution Context is created in two phases:</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Creation Phase</dt>
+<dd><ul class="first last">
+<li><p class="first">Global Object</p>
+</li>
+<li><p class="first">‘this’</p>
+</li>
+<li><p class="first">Outer Environment</p>
+</li>
+<li><p class="first">Setup Memory Space for Variables (undefined) and Functions - “<strong>Hoisting</strong>”</p>
+<blockquote>
+<div><ul class="simple">
+<li>A function and all its code is stored in memory</li>
+<li>A variable is stored in memory, however the value is unknown and will be set to undefined</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="single-threaded-synchronous">
+<h3>Single Threaded &amp; Synchronous<a class="headerlink" href="#single-threaded-synchronous" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Single Threaded:</dt>
+<dd><ul class="first last simple">
+<li>One command at a time.</li>
+<li>Under the hood of the browser, maybe not…</li>
+</ul>
+</dd>
+<dt>Synchronous:</dt>
+<dd><ul class="first last simple">
+<li>One (line of code) at a time. And in order.</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="asynchronous">
+<h3>Asynchronous<a class="headerlink" href="#asynchronous" title="Permalink to this headline">¶</a></h3>
+<p>More than one at a time. Some code intializes other code to run at the same time. Javascript is synchronous, so we need special implementation to handle this.
+An event queue is created that stores notification of events that are happening. For example, Click. We can have an event listener to react to these accordingly.
+This event queue gets looked at once the execution stack is empty, and then creates the execution context to react to the item in the event queue (ex. handleClick()).</p>
+</div>
+<div class="section" id="invocation">
+<h3>Invocation<a class="headerlink" href="#invocation" title="Permalink to this headline">¶</a></h3>
+<p>Running a function. In JS, by using parenthesis ()</p>
+</div>
+<div class="section" id="object">
+<h3>Object<a class="headerlink" href="#object" title="Permalink to this headline">¶</a></h3>
+<p>A collection of name value pairs (The simplest definition when talking about Javascript).</p>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">Address</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">Street</span><span class="o">:</span> <span class="s1">&#39;Main&#39;</span><span class="p">,</span>
+    <span class="nb">Number</span><span class="o">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="nx">Apartment</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">Floor</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+        <span class="nb">Number</span><span class="o">:</span> <span class="mi">301</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variable-environment">
+<h3>Variable Environment<a class="headerlink" href="#variable-environment" title="Permalink to this headline">¶</a></h3>
+<p>Where the variables live and how they relate to each other in memory.
+Variables declared within a function live within the execution context of that function.</p>
+</div>
+<div class="section" id="the-scope-chain">
+<h3>The Scope Chain<a class="headerlink" href="#the-scope-chain" title="Permalink to this headline">¶</a></h3>
+<p>Each execution context has a reference to an Outer Environment. This outer environment is a reference to the Global Execution Context.
+This means that a function can reference a variable if it is declared in the Global Execution Context, and not in its own execution context.</p>
+<a class="reference internal image-reference" href="../_images/jsscopechain.png"><img alt="Scope Chain" src="../_images/jsscopechain.png" style="width: 400px;" /></a>
+<p>However, if we have a function that is nested inside of another function, the outer reference then becomes the parent function of which it sits inside.</p>
+</div>
+<div class="section" id="scope">
+<h3>Scope<a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
+<p>Where a varibale is available in your code. And, if it’s truly the same variable, or a new copy.</p>
+</div>
+</div>
+<div class="section" id="react">
+<h2>React<a class="headerlink" href="#react" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="componentlifecycle">
+<h3>ComponentLifeCycle<a class="headerlink" href="#componentlifecycle" title="Permalink to this headline">¶</a></h3>
+<p>In order from first to last:</p>
+<ol class="arabic simple">
+<li><dl class="first docutils">
+<dt>componentWillMount</dt>
+<dd><ul class="first last">
+<li>Immediately before initial rendering</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>componentDidMount</dt>
+<dd><ul class="first last">
+<li>Immediately after initial rendering</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>componentWillRecieveProps</dt>
+<dd><ul class="first last">
+<li>When component recieved new props (ex. new props due to parent state change)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>shouldComponentUpdate</dt>
+<dd><ul class="first last">
+<li>Before rendering, after recieving new props or state. Can return false to prevent rerendering</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>componentWillUpdate</dt>
+<dd><ul class="first last">
+<li>Before rendering, after receiving new props or state</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>componentDidUpdate</dt>
+<dd><ul class="first last">
+<li>After component’s update are flushed to DOM</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>componentWillUnMount</dt>
+<dd><ul class="first last">
+<li>Immediately before removing component from DOM</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="error-boundaries">
+<h3>Error Boundaries<a class="headerlink" href="#error-boundaries" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://reactjs.org/docs/error-boundaries.html">Error Boundaries</a></p>
+<p>Runtime errors during rendering will break the app, we can prevent this using error boundaries.
+Consists of two lifecycle methods:</p>
+<ul>
+<li><p class="first">static getDerivedStateFromError(error)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Used to render a fallback UI after an error is thrown</li>
+<li>Can set error state to true and conditionally render a specific UI</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">componentDidCatch(error, info)</p>
+<blockquote>
+<div><ul class="simple">
+<li>Used to log the error and information</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Create an ErrorBoundary component which has the two lifecycle methods above. You can then wrap any
+component in this ErrorBoundary component if you wish to enable the error boundaries for it.</p>
+</div>
+<div class="section" id="redux-state-management">
+<h3>Redux State Management<a class="headerlink" href="#redux-state-management" title="Permalink to this headline">¶</a></h3>
+<p>A popular state management library that keeps all state information in a central location called a ‘store’.
+Redux models the applications state as a single JS Object</p>
+<p>Action</p>
+<blockquote>
+<div><ul class="simple">
+<li>A POJO that must have a key called ‘type’ and a string value</li>
+<li>Can have any number of additional keys</li>
+</ul>
+</div></blockquote>
+<p>Reducer</p>
+<blockquote>
+<div><ul class="simple">
+<li>A function that accepts the state and an action and returns a new state</li>
+</ul>
+</div></blockquote>
+<p>Store</p>
+<blockquote>
+<div><ul class="simple">
+<li>One bug POJO that represents the entire state of the application</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="vue">
+<h2>Vue<a class="headerlink" href="#vue" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="polymer">
+<h2>Polymer<a class="headerlink" href="#polymer" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="d3">
+<h2>D3<a class="headerlink" href="#d3" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="css.html" class="btn btn-neutral float-right" title="CSS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Owens Docs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Owen Adley
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
