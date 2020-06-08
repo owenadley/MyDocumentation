@@ -74,7 +74,7 @@ ES6+ (ECMAScript 6)
 ======================
 Variable Definitions
 -------------------------
-let - ES6 new
+let - ES6+
 ^^^^^^^^^^^^^^^^^^^^^^^
 Variable which is accessible from within the scope that it is declared only.
 
@@ -85,6 +85,74 @@ Variable decleration which is accessible globally or anywhere within the functio
 const
 ^^^^^^^^^^^^^^^^^^^^^^^
 Variable decleration for an immutable value.
+
+Types and Operators
+======================
+Dynamic Typing
+-------------------------
+You don't tell the JS engine what type of data a variable holds, it figures it out while your code is running. Unlike Java where you would declare type (ex. bool isTrue = false)
+
+Primitive Types
+-------------------------
+A type of data that represents a single value. Not an object. There are six types in JS.
+
+Undefined
+^^^^^^^^^^^^^^^^^^^^^^^
+undefined represents a lack of existence and is what the JS engine sets variables to intially. Do not set variables to undefined.
+
+Null
+^^^^^^^^^^^^^^^^^^^^^^^
+null represents lack of existence but is not set by the JS engine. Set variables to null if you want them to equal nothing.
+
+Boolean
+^^^^^^^^^^^^^^^^^^^^^^^
+true or false
+
+Number
+^^^^^^^^^^^^^^^^^^^^^^^
+Floating point number (there's always some decimals). Unlike other programming languages, there is only one 'number' type.
+
+String
+^^^^^^^^^^^^^^^^^^^^^^^
+A sequence of characters (both " and ' can be used)
+
+Symbol - ES6+
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Operators
+-------------------------
+A special function that is syntactically (written) differently. Generally operators take two parameters and return one result.
+
+`Precedence & Assciatvity <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence>`_
+
+Operator Precedence
+^^^^^^^^^^^^^^^^^^^^^^^
+Which operator function gets called first (when there is more than one on the same line of code).
+Functions are called in order of precedence (Higher precedence first).
+
+Operator Associatvity
+^^^^^^^^^^^^^^^^^^^^^^^
+Which order operator function get called in: Left-to-Right or Right-to-Left.
+When functions have the same precedence
+
+Coercion
+-------------------------
+Converting a value from one type to another. This happens quite often in JS because it is dynamically typed.
+Coercion will take place when using comparison operators. To avoid coercion, we can use strict equality and inequality.
+
+.. code-block:: javascript
+
+    3 == "3" //true
+    3 === "3" //false - strict equality compares the object type
+
+`Equality & Sameness table <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness>`_
+
+Objects & Functions
+======================
+Namespace
+-------------------------
+A container for variables and functions. Typically to keep variables and function with the same name seperate.
+javascript does not have namespace, but we can fake it.
 
 Execution Contexts and Lexical Environments
 =============================================
