@@ -12,5 +12,6 @@ Owens Docs
      /pages/javascript.rst
      /pages/css.rst
      /pages/frontendinterviewquestions.rst
+     /pages/oodesign.rst
 
 

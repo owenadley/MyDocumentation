@@ -243,6 +243,19 @@ Scope
 Where a varibale is available in your code. And, if it's truly the same variable, or a new copy.
 
 
+Objects & Functions
+=============================================
+
+First Class Functions
+-------------------------
+Everything you can do with other types you can do with functions. Assign them to variables, pass the around, create them on the fly.
+
+Expression
+-------------------------
+A unit of code that results in a value. It doesnt have to save a variable.
+
+
+
 React
 ==================
 ComponentLifeCycle
