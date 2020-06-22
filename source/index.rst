@@ -13,5 +13,6 @@ Owens Docs
      /pages/css.rst
      /pages/frontendinterviewquestions.rst
      /pages/oodesign.rst
+     /pages/git.rst
 
 
