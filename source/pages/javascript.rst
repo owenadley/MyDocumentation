@@ -147,12 +147,6 @@ Coercion will take place when using comparison operators. To avoid coercion, we 
 
 `Equality & Sameness table <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness>`_
 
-Objects & Functions
-======================
-Namespace
--------------------------
-A container for variables and functions. Typically to keep variables and function with the same name seperate.
-javascript does not have namespace, but we can fake it.
 
 Execution Contexts and Lexical Environments
 =============================================
@@ -246,6 +240,11 @@ Where a varibale is available in your code. And, if it's truly the same variable
 Objects & Functions
 =============================================
 
+Namespace
+-------------------------
+A container for variables and functions. Typically to keep variables and function with the same name seperate.
+javascript does not have namespace, but we can fake it.
+
 First Class Functions
 -------------------------
 Everything you can do with other types you can do with functions. Assign them to variables, pass the around, create them on the fly.
@@ -253,6 +252,83 @@ Everything you can do with other types you can do with functions. Assign them to
 Expression
 -------------------------
 A unit of code that results in a value. It doesnt have to save a variable.
+
+Passing by value vs. reference
+--------------------------------
+By value
+^^^^^^^^^^
+When a variable is passed by value, it creates a new space in memory for the variable.
+
+.. code-block:: javascript
+    
+    var a = 3;
+    var b;
+
+    b = a;
+    a = 2; 
+
+    console.log(a); // 2
+    console.log(b); // 3
+
+By reference
+^^^^^^^^^^^^^^
+When a variable is passed by reference, the reference points to the same location in memory.
+
+
+.. code-block:: javascript
+    
+    var c = { greeting: 'hi' };
+    var d;
+
+    d = c;
+    c.greeting = 'hello';
+
+    console.log(c); // { greeting: 'hello'}
+    console.log(d); // { greeting: 'hello'}
+
+
+Mutate
+--------------------------------
+To change something. "Immutable" means it can't be changed
+
+Arguments
+--------------------------------
+The paramaters you pass to a function.
+Javascript gives you a keyword of the same name which contains them all (arguments).
+
+.. code-block:: javascript
+    
+    function a(fname, lname) {
+        if (arguments.length === 0) {
+            // nothing was passed to the function
+        }
+    }
+
+Whitespace
+--------------------------------
+Invisible characters that create literal 'space' in your written code. -> Comments
+
+Immediately Invoked Function Expressions (IIFE)s
+---------------------------------------------------
+Using a function expression, you can immediately invoke the function at runtime, at the point in the code where the function is defined.
+
+.. code-block:: javascript
+    
+    var greeting = function(name) {
+        console.log('Hello' + name);
+    }(name);
+
+    // OR
+
+    (function(name) {
+        var greeting = 'Hello';
+        console.log(greeting + ' ' + name);
+    }(firstname));
+
+Closures
+---------------------------------------------------
+Any time a function is called it gets its own execution context, and any functions created inside of it will point to that execution context.
+Closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
 
 
 
