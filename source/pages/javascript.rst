@@ -327,9 +327,67 @@ Using a function expression, you can immediately invoke the function at runtime,
 
 Closures
 ---------------------------------------------------
-Any time a function is called it gets its own execution context, and any functions created inside of it will point to that execution context.
+Any time a function is called it gets its own execution context, and any functions created inside of it will point to that execution contexts variables that were created.
 Closure gives you access to an outer function’s scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
 
+Callback Function
+---------------------------------------------------
+A function you give to another function, to be run when the other function is finished.
+So the function you call, 'calls back' by calling the function you gave it when it finishes
+
+call(), apply() and bind()
+---------------------------------------------------
+Used to indicate the 'this' context for a function.
+
+.. code-block:: javascript
+    
+    var person = {
+        fname: "Owen"
+        getFirstName: function() {
+            return fname;
+        }
+    }
+
+    var logName = function(lname) {
+        console.log(this.getFirstName() + ' ' + lname);
+    }
+
+    logName.call(person, "Owen");   // will point the 'this' variable to the person object.
+    logName.apply(person, ["Owen"]);    //// Same as above, except apply() takes an array of arguments 
+    
+    var logPersonName = logName.bind(person);   // bind will assign the 'this' variable but will not call the function until you invoke it yourself
+    logPersonName("Owen");
+
+    var person2 = {
+        fname: "Owen"
+    }
+
+    // function borrowing
+    // Since the objects have similar property names, we can 'borrow' the function declared in person to use for the person 2 object
+    person.getFirstName.apply(person2);
+
+
+Function Currying
+---------------------------------------------------
+Creating a copy of a function but with some preset parameters. Very useful in mathematical situations.
+
+    // function currying
+    function multiply(a, b) {
+        return a*b
+    }
+    var multipleByTwo = multiply.bind(this, 2); // this will permanetely set 'b' to 2 - default paramater
+    console.log(multiplyByTwo(4));
+
+
+Object-Oriented Javascript and Prototypal Inheritance
+=======================================================
+Inheritance
+-------------------------
+One object gets access to the properties and methods of another object.
+
+Reflection
+-------------------------
+An object can look at itself, listing and changing its properties and methods.
 
 
 React
