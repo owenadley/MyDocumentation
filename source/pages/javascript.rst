@@ -40,6 +40,11 @@ Tests whether all elements of an array pass the test implemented by the provided
 
 The elements will be seperated by a specified seperator. By default this is a comma
 
+for in and for of
+^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
 Strings
 ------------------
 split("")
@@ -353,7 +358,7 @@ Used to indicate the 'this' context for a function.
     }
 
     logName.call(person, "Owen");   // will point the 'this' variable to the person object.
-    logName.apply(person, ["Owen"]);    //// Same as above, except apply() takes an array of arguments 
+    logName.apply(person, ["Owen"]);    // Same as above, except apply() takes an array of arguments 
     
     var logPersonName = logName.bind(person);   // bind will assign the 'this' variable but will not call the function until you invoke it yourself
     logPersonName("Owen");
@@ -388,6 +393,19 @@ One object gets access to the properties and methods of another object.
 Reflection
 -------------------------
 An object can look at itself, listing and changing its properties and methods.
+
+
+Building Objects
+=======================================================
+Function Constructors
+-------------------------
+A normal function that is used to construct objects.
+The 'this' variable points to a new empty object, and that object is returned from the function automatically.
+
+Polyfill
+-------------------------
+Code that adds a feature which the enginer may lack (common for older browsers to create support for new feature)
+
 
 
 React
