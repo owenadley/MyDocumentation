@@ -412,21 +412,63 @@ React
 ==================
 ComponentLifeCycle
 -------------------------
+There are three main phases in the React lifecycle: Mounting, Updating and Unmounting.
+
+Mounting Phase: 
+
+    1. constructor(props)
+        - The constructor gets called before anything else and is a good spot to initialize state and other values.
+        - The constructor is called with the props argument and should also call super(props), this will initiate the parents constructor and allow the component to inherit methods from its parent.
+
+    2. getDerivedStateFromProps(props, state)
+        - Gets called right before rendering the elements in the DOM
+
+    3. render()
+        - Outputs HTML to the DOM
+    
+    4. componentDidMount()
+        - Called after the component is rendered
+        - Good time to do stuff that rely on the component being in the DOM
+
+Updating Phase:  
+
+    1. getDerivedStateFromProps(props, state)
+
+    2. shouldComponentUpdate()
+        - You can return a boolean from this function to determine whether React should continue rendering or not, default is true
+
+    3. render()
+        - re-render the new HTML to the DOM
+
+    4. getSnapShotBeforeUpdate(prevProps, prevState)
+        - Gives you access to the props and state before the update occurred to that you can check what the old values were
+        - If you have this function present, you must also have the componentDidUpdate() lifecycle method or else you will get an error
+    
+    5. componentDidUpdate()
+        - This function is called right when the component has been updated in the DOM
+
+Unmounting Phase:
+
+    1. componentWillUnmount()
+        - This function is called when the component is about to be removed from the DOM
+        - Could be used to do any final tear down or save any unsaved progress
+    
+    
 In order from first to last:
 
-1. componentWillMount
+1. componentWillMount - LEGACY
     * Immediately before initial rendering
 
 2. componentDidMount
     * Immediately after initial rendering
 
-3. componentWillRecieveProps
+3. componentWillRecieveProps - LEGACY
     * When component recieved new props (ex. new props due to parent state change)
 
 4. shouldComponentUpdate
     * Before rendering, after recieving new props or state. Can return false to prevent rerendering
 
-5. componentWillUpdate
+5. componentWillUpdate - LEGACY
     * Before rendering, after receiving new props or state
 
 6. componentDidUpdate
