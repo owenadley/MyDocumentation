@@ -14,5 +14,6 @@ Owens Docs
      /pages/frontendinterviewquestions.rst
      /pages/oodesign.rst
      /pages/git.rst
+     /pages/testing.rst
 
 
