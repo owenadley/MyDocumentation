@@ -40,8 +40,17 @@ Tests whether all elements of an array pass the test implemented by the provided
 
 The elements will be seperated by a specified seperator. By default this is a comma
 
-for in and for of
+for .. of
 ^^^^^^^^^^^^^^^^^^^^^^^
+Used to iterate over the values in an iterable, this is not limited to arrays though
+
+.. code-block:: javascript
+    var arr = ["Owen", "Adley];
+    for (str of arr) {
+        console.log(str);
+    }
+
+    // Owen Adley
 
 
 
@@ -77,6 +86,31 @@ Concats strings together
 
 ES6+ (ECMAScript 6)
 ======================
+Arrow Functions
+-------------------------
+Arrow functions are a new way to declare function with ES6. Declaring an arrow function will automatically bind the function to its parent.
+The 'this' variable of the function will be the same as the 'this' of its surrounding code.
+
+.. code-block:: javascript
+
+    increment = (num) => {
+        return num++;
+    }
+
+Classes
+-------------------------
+Classes are also new with ES6, and in fact are "special functions". However, unlike functions, classes are not hoisted.
+Classes are primarily syntactical sugar over JS's existing prototype-based inheritance.
+
+Template Strings
+-----------------
+A template string is declared using backticks and allows for interpolations and multi-line strings.
+
+.. code-block:: javascript:
+
+    `Hi my name is ${name}`
+    
+
 Variable Definitions
 -------------------------
 let - ES6+
@@ -244,6 +278,50 @@ Where a varibale is available in your code. And, if it's truly the same variable
 
 Objects & Functions
 =============================================
+Function Expression
+------------------------
+A function expression is when you use the *function* keyword to define a function inside an expression.
+• The function can then be passed around like a variable and invoked at any time (commonly used for callbacks).
+• Unlike function declerations, function expressions are not hoisted.
+• You can declare a function expression as an anonymous function or a named function.
+
+Anonymous function expressions are sometimes referred to as **Inline Functions**.
+However, there is no consensus or official JS documentation referring to *Inline Functions*, but if you hear the term, they are referring to an anonymous function expression.
+
+Here is an example of an anonymous function expression (or an Inline Function as some would like to say):
+
+.. code-block:: javascript
+
+    let funExpression = function(name) {
+        return 'Hello ' + name; 
+    }
+
+Here is an example of an named function expression:
+
+.. code-block:: javascript
+
+    let funExpression = function namedFunction(name) {
+        return 'Hello ' + name;
+    }
+
+One of the benefits of using named function expressions is that if there is an error, the stack trace will contain the name of the function making it easier to find the origin.
+
+for .. in
+^^^^^^^^^^^^^^^^^^^^^^^
+Used to iterate over the properties of an object.
+
+.. code-block:: javascript
+    let cars = {
+        make: 'Honda',
+        model: 'Civic',
+        year: '2003'
+    }
+
+    for (key in cars) {
+        console.log(key)
+    }
+    
+    //make, model, year
 
 Namespace
 -------------------------
