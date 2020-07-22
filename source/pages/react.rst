@@ -129,6 +129,36 @@ The above example would be invalid because <div> in Columns is not a valid child
     }
 
 
+Profiler
+-------------------------
+A Profiler is a React component that can be inserted anywhere in the tree to measure the cost of rendering that specific part of the tree.
+It is a great tool for determining rendering speeds and optimizing applications.
+It takes an onRender prop which requires a callback function.
+
+.. code-block:: javascript
+
+    render(
+        <App>
+            <Profiler id="Navigation" onRender={callback}>
+            <Navigation {...props} />
+            </Profiler>
+            <Main {...props} />
+        </App>
+    );
+
+Then, we can create the callback function to handle the Profiler measurements.
+
+    function onRenderCallback(
+        id, // the "id" prop of the Profiler tree that has just committed
+        phase, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
+        actualDuration, // time spent rendering the committed update
+        baseDuration, // estimated time to render the entire subtree without memoization
+        startTime, // when React began rendering this update
+        commitTime, // when React committed this update
+        interactions // the Set of interactions belonging to this update
+    ) {
+        // Aggregate or log render timings...
+    }
 
 Error Boundaries
 ====================
@@ -215,3 +245,65 @@ You cannot use refs on functional components because they do not have instances.
             );
         }
     }
+
+Forwarding Refs
+-------------------------
+Ref forwarding is an opt-in feature that lets some components take a ref they recieve and pass it further down (forward) it to a child.
+An example:
+
+.. code-block:: javascript
+
+    const FancyButton = React.forwardRef((props, ref) => (
+        <button ref={ref} className="FancyButton">
+            {props.children}
+        </button>
+    ));
+
+    // You can now get a ref directly to the DOM button:
+    const ref = React.createRef();
+    <FancyButton ref={ref}>Click me!</FancyButton>;
+
+Forwarding refs is not necessary for most components in the application, however can be useful in some cases.
+
+Composition / Containment
+===========================
+A common pattern used to re-use code between components.
+Instead of just inserted a components like: <MyComponent />, you can insert html, or other components inside of it.
+
+In the example below, we see a WelcomeDialog component where all the HTML is within the FancyBorder JSX tag. 
+
+.. code-block:: javascript
+
+    function WelcomeDialog() {
+        return (
+            <FancyBorder color="blue">
+                <h1 className="Dialog-title">
+                    Welcome
+                </h1>
+                <p className="Dialog-message">
+                    Thank you for visiting our spacecraft!
+                </p>
+            </FancyBorder>
+        );
+    }
+
+Now, in the FancyBorder component we have a div that renders {props.childern}. props.childern will refer to all of the child elements within FancyBorder in the above snippet.
+
+.. code-block:: javascript
+
+    function FancyBorder(props) {
+        return (
+            <div className={'FancyBorder FancyBorder-' + props.color}>
+                {props.children}
+            </div>
+        );
+    }
+
+Higher Order Components (HOC)
+==============================
+Higher order component is a function which takes a component and returns a new component
+
+Hooks
+===========================
+Hooks are new addition to React 16.8 and they let you use state or other React features within a functional component
+......

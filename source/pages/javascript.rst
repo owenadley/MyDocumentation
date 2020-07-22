@@ -45,13 +45,20 @@ for .. of
 Used to iterate over the values in an iterable, this is not limited to arrays though
 
 .. code-block:: javascript
+
     var arr = ["Owen", "Adley];
     for (str of arr) {
         console.log(str);
     }
-
     // Owen Adley
 
+forEach
+^^^^^^^^^^^^^^
+ForEach is used to iterate through an array and applies some operation to every element of the array
+
+map
+^^^^^^^^^^^^^
+map is used to iterate through an array, apply some operation on every element and return a new array with the new elements
 
 
 Strings
@@ -110,16 +117,32 @@ A template string is declared using backticks and allows for interpolations and 
 
     `Hi my name is ${name}`
     
+Promises
+-------------------------
+Promises represent a value that is available now, in the future, or never. You can use it by creating a new Promise object from the function which is operating asynchronously.
+
+.. code-block:: javascript
+
+    function timeout(duration = 0) {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, duration);
+        })
+    }
+
+    var p = timeout(1000).then(() => {
+        return timeout(2000);
+    }).then(() => {
+        throw new Error("hmm");
+    }).catch(err => {
+        return Promise.all([timeout(100), timeout(200)]);
+    })
+
 
 Variable Definitions
 -------------------------
-let - ES6+
+let
 ^^^^^^^^^^^^^^^^^^^^^^^
 Variable which is accessible from within the scope that it is declared only.
-
-var 
-^^^^^^^^^^^^^^^^^^^^^^^
-Variable decleration which is accessible globally or anywhere within the function.
 
 const
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -320,7 +343,7 @@ Used to iterate over the properties of an object.
     for (key in cars) {
         console.log(key)
     }
-    
+
     //make, model, year
 
 Namespace
