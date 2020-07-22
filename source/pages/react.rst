@@ -305,5 +305,60 @@ Higher order component is a function which takes a component and returns a new c
 
 Hooks
 ===========================
-Hooks are new addition to React 16.8 and they let you use state or other React features within a functional component
-......
+Hooks are new addition to React 16.8 and they let you use state or other React features within a functional component. They do not work in classes.
+
+State Hook
+^^^^^^^^^^^
+useState is a hook which can offer a local state to a functional component and it will be preserved between re-renders. 
+useState returns a pair: the current state value and a function which you can use to update it.
+The only argument that useState takes is the inital state.
+Here is an example with a counter:
+
+.. code-block:: javascript
+
+    function counter() {
+
+        const [count, setCount] = useState(0);
+
+        return (
+            <div>
+                <p> You clicked the button {count} times </p>
+                <button onClick={()=>setCount(count+1)}> Click Me </button>
+            </div>
+        )
+
+    }
+
+Note in the example above, the setCount function does not need to be called as an arrow function, it could call a seperately declared function which increments the count and does other things.
+
+
+Effect Hook
+^^^^^^^^^^^
+The effect hook is for doing "side effects", which are things such as fetching, subscribing, manually changing dom, etc.
+useEffect serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount.
+By default, React runs the effects after every render, including the first one.
+This example sets the document title after each re-render. Note, the effect hook has access to the state set by useState()
+
+.. code-block:: javascript
+
+    import React, { useState, useEffect } from 'react';
+
+    function Example() {
+        const [count, setCount] = useState(0);
+
+        // Similar to componentDidMount and componentDidUpdate:
+        useEffect(() => {
+            // Update the document title using the browser API
+            document.title = `You clicked ${count} times`;
+        });
+
+        return (
+            <div>
+                <p>You clicked {count} times</p>
+                <button onClick={() => setCount(count + 1)}>
+                    Click me
+                </button>
+            </div>
+        );
+    }
+
