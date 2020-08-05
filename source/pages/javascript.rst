@@ -86,10 +86,34 @@ concat(str)
 ^^^^^^^^^^^^^^^^^^^^^^^
 Concats strings together
 
-.. code-block:: javascript
-    
-    let newStr = str1.concat(str2)
-    let newStr = str1.concat(str2, str3, strn)
+    .. code-block:: javascript
+        
+        let newStr = str1.concat(str2)
+        let newStr = str1.concat(str2, str3, strn)
+
+
+replace(id, new)
+^^^^^^^^^^^^^^^^^^^
+You can use the replace method to replace all matches of a specific pattern with something else. This returns a new string with the replacements.
+
+    .. code-block:: javascript
+
+        const str = "Hello World I Am Owen"
+        // we can replace all the l's with P's
+        const newStr = str.replace(/l/g, 'P')
+        // newStr: HePPo WorPd I Am Owen
+
+See the official docs for some more configurations and options when replacing elements:
+`JS Replace Function <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace>`_
+
+includes(str)
+^^^^^^^^^^^^^^^
+The includes method returns a boolean indicating whether or not a string includes and specific substring
+
+    .. code-block:: javascript
+
+        var str = "I Am Owen"
+        var n = str.includes("Owen")    // true
 
 ES6+ (ECMAScript 6)
 ======================
@@ -147,6 +171,92 @@ Variable which is accessible from within the scope that it is declared only.
 const
 ^^^^^^^^^^^^^^^^^^^^^^^
 Variable decleration for an immutable value.
+
+
+Import vs Require
+-------------------------
+import uses ES2015 Modules
+require uses CommonJS Modules
+
+Spread Operator (...)
+------------------------
+There are three places you can use spread:
+* In function calls (when executing)
+
+    For example, if you wanted to pass an array of numbers to a function which does not accept
+    arrays, but only functions, we can use the spread operator:
+
+    .. code-block:: javascript
+
+        var array = [10, 20, 30]
+        Math.min(10, 20, 30)    // 10
+        Math.min(array)  // NaN
+        Math.min(...array)  // 10
+
+    You can think of it as literally 'spreading' the items of the array out into their own parts.
+    This also works for strings since they are iterable:
+
+    .. code-block:: javascript
+
+        var str = "ABC"
+        console.log(...str) // A B C
+
+    In this case, we split the chars of the string into their own parts, and they are seperated by a space
+
+* In an array literal (when you're making a new array)
+
+    Probably the most common use case for the spread operator is for array literals.
+    We can use it to take data from an array and create new arrays:
+
+    .. code-block:: javascript
+
+        const parents = ["Rob", "Sheryl"]
+        const kids = ["Katelyn", "Owen"]
+
+        const fullFam = [...parents, ...kids]   // ["Rob", "Sheryl", "Katelyn", "Owen"]
+
+    It can also be used to copy an array.
+    Since arrays are reference based, if we assign an array to a new variable and change that new varaible, the original array will also change.
+    We can get around this by creating a copy using the object spread notation
+
+    .. code-block:: javascript
+
+    const original = ['hello', 'world'];
+    const new = original
+    new.push('again')
+    // new and original now both contain the word 'again'
+    const newtwo = [...original]
+    newtwo.push('again')
+    // now only newtwo contains the word 'again'
+
+
+* In object literal (when you're making an object)
+
+    The same as array literals, but using object notation rather than array notation ({} vs []).
+    Example:
+
+    .. code-block:: javascript
+
+        const lion = {hasTail: true, legs: 4}
+        const eagle = {canFly: true}
+
+        const hybrid = {name: "Gryphon", ...lion, ...eagle}
+        // hybrid = {canFly: true, hasTail: true, legs: 4, name: "Gryphon"}
+
+A good example of the spread notation with regards to React is how you update the state.
+For example, if we have an array of TODO objects in state, we dont want to mutate the state by using
+push() or unshift(). We should make a copy of the TODO state, add the new TODO, then update the state
+with the new TODO list.
+
+    .. code-block:: JavaScript
+
+        const todo = [{name: "Owen", completed: false, task:"Something"]
+
+        function addToDo(newToDo) {
+            return [...todo, {...newToDo, completed: false}]
+        }
+
+
 
 Types and Operators
 ======================
