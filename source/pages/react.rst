@@ -361,6 +361,8 @@ This example sets the document title after each re-render. Note, the effect hook
         );
     }
 
-Best Practices
+Optimizations
 ===========================
- 
+ * Render frequency - Pure Component, shouldComponentUpdate
+ * Network Requests
+ * Asset optimization - Image compression, etc

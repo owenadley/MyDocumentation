@@ -14,6 +14,14 @@ push(x)
 ^^^^^^^^^^^^^^^^^^^^^^^
 Adds a new item to the end of the array and returns the new array length
 
+slice(start, end)
+^^^^^^^^^^^^^^^^^^^^^^^^
+Returns a new array composed of the items between indicies start and end
+
+splice(start, end)
+^^^^^^^^^^^^^^^^^^^^^^^
+Removes the indicies of an array between start and end
+
 join()
 ^^^^^^^^^^^^^^^^^^^^^^^
 Returns all elements in an array as a single string
@@ -38,6 +46,10 @@ Tests whether all elements of an array pass the test implemented by the provided
     console.log(array1.every(isBelowThreshold));
     // expected output: true
 
+    // OR you can do it Inline
+
+    console.log(array1.every((num) => num < 40))
+
 The elements will be seperated by a specified seperator. By default this is a comma
 
 for .. of
@@ -58,11 +70,28 @@ ForEach is used to iterate through an array and applies some operation to every 
 
 map
 ^^^^^^^^^^^^^
-map is used to iterate through an array, apply some operation on every element and return a new array with the new elements
+Map is used to iterate through an array, apply some operation on every element and return a new array with the new elements.
+Use this when you need to do an operation of each element of the array, but you keep the original array and store the operated values in a new array:
+
+.. code-block:: javascript
+
+    let sorted = strs.map(str => {
+        return str.split('').sort().join('')
+    })
+
+sort
+^^^^^^^^^^^^^^
+Sorts the elements of an array in place and returns the sorted array
 
 
 Strings
 ------------------
+
+slice(start, end) OR slice(end)
+^^^^^^^^^^^^^^^^^^^^^^^
+Extracts depicted parts of the string and returns the extracted parts in a new string
+
+
 split("")
 ^^^^^^^^^^^^^^^^^^^^^^^
 Split a string into an array based on each occurance of the passed parameter
