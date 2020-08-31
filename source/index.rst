@@ -16,6 +16,7 @@ Owens Docs
      /pages/oodesign.rst
      /pages/git.rst
      /pages/testing.rst
-     /pages/frontendinterviewquestions.rst
+     /pages/frontendinterviewquestions.rst 
+     /pages/algorithms.rst
 
 
